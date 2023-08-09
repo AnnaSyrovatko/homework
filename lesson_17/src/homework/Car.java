@@ -18,4 +18,13 @@ public class Car {
     public String toString(){
         return brand + " " + color + " " + licensePlate + " (" + registrationDate + "); Engine: " + engine;
     }
+    public String drive(String brand, String licensePlate){
+        System.out.println(engine.start());
+        return brand + " " + licensePlate + " drove off";
+    }
+    public String stop(String brand, String licensePlate){
+        System.out.println(engine.stop());
+        return brand + " " + licensePlate + " stopped";
+    }
+
 }

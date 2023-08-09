@@ -9,8 +9,15 @@ public class Engine {
         this.type = type;
     }
 
-    public String toString() {
+    public String toString(){
         return type + ", " + power + " hp";
+    }
+
+    public String start(){
+        return "Engine is started";
+    }
+    public String stop(){
+        return "Engine is stopped";
     }
 
 }
