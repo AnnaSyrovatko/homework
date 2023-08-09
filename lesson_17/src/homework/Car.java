@@ -6,6 +6,7 @@ public class Car {
     String licensePlate;
     MyDate registrationDate;
     Engine engine;
+    boolean flag = false;
 
     public Car(String brand, String color, String licensePlate, MyDate registrationDate, Engine engine){
         this.brand = brand;
@@ -19,10 +20,17 @@ public class Car {
         return brand + " " + color + " " + licensePlate + " (" + registrationDate + "); Engine: " + engine;
     }
     public String drive(String brand, String licensePlate){
-        System.out.println(engine.start());
-        return brand + " " + licensePlate + " drove off";
+        if (!flag){
+            flag = true;
+            System.out.println(engine.start());
+            return brand + " " + licensePlate + " drove off";
+        }else{
+            return "The car is already driving";
+        }
     }
+
     public String stop(String brand, String licensePlate){
+        flag = false;
         System.out.println(engine.stop());
         return brand + " " + licensePlate + " stopped";
     }

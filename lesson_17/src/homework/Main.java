@@ -9,21 +9,21 @@ public class Main {
         Car car1 = new Car("BMW","black","FZK7955", registrationDate1, engine1);
         System.out.println(car1);
 
+        // 2-nd car
+
         MyDate registrationDate2 = new MyDate(23,5, 2023);
         Engine engine2 = new Engine(670, "electric");
         Car car2 = new Car("Tesla","red","MT7854", registrationDate2, engine2);
         System.out.println(car2);
 
         System.out.println();
-        System.out.println(car1.drive(car1.brand, car1.licensePlate));
+        System.out.println(car1.drive(car1.brand, car1.licensePlate)); // запуск машины
 
         System.out.println();
-        System.out.println(car1.stop(car1.brand, car1.licensePlate));
+        System.out.println(car1.drive(car1.brand, car1.licensePlate)); // проверка ошибок
 
-
-
-
-
+        System.out.println();
+        System.out.println(car1.stop(car1.brand, car1.licensePlate)); // остановка машины
 
     }
 }
