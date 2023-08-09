@@ -39,24 +39,12 @@ public class AITStudents {
         student2.startCourse = dateCourse;
 
 
-        System.out.println(studentToString(student1));
-        System.out.println(studentToString(student2));
+        System.out.println(student1.studentToString());
+        student1.sayHello();
+        System.out.println(student2.studentToString());
 
 
 
-    }
-    public static String studentToString(Student student){
-        return student.firstName +" "+ student.lastName +"\n"+  dateToStringWithObject(student.birthday) +"\n"+ student.group +"\n"+ dateToStringWithObject(student.startCourse) + "\n";
-    }
-
-    public static String dateToStringWithObject(MyDate date) {
-
-        if (date.month < 0 || date.month > 12) {
-            return "error";
-        }
-
-        String[] months = {"", "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
-        return (date.day < 10 ? "0" : "") + date.day + " " + months[date.month] + " " + date.year;
     }
 
 }
