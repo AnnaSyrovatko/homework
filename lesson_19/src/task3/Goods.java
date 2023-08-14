@@ -1,16 +1,26 @@
 package task3;
 
 public class Goods {
-    private String name;
-    double price; // can't make it private?
 
-    public Goods(String name, double price){
+    private int id;
+    private String name;
+    private double price;
+
+    public Goods(String name, double price, int id){
         this.name = name;
         this.price = price;
+        this.id = id;
     }
 
     public String toString(){
-        return name + " - " + price + " USD";
+        return id + "." + name + " - " + price + " USD";
+    }
+
+    public double getPrice(){
+        return price;
+    }
+    public int getId(){
+        return id;
     }
 
 

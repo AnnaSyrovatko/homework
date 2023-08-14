@@ -10,18 +10,23 @@ public class Main {
         Реализовать метод, который распечатает весь заказ. Реализовать метод, который вернет сумму заказа.
         */
 
-        Goods item1 = new Goods("Milk", 0.90);
-        Goods item2 = new Goods("Bread", 2.12);
-        Goods item3 = new Goods("Eggs", 2.46);
-        Goods item4 = new Goods("Sugar", 1.3);
-        Goods item5 = new Goods("Salt", 0.91);
+        Goods [] array = {
+                new Goods("Milk", 0.90, 1),
+                new Goods("Bread", 2.12, 2),
+                new Goods("Eggs", 2.46, 3),
+                new Goods("Sugar", 1.3, 4),
+                new Goods("Salt", 0.91, 5)
+        };
 
 
         Cart client1 = new Cart();
-        client1.add(item1);
-        client1.add(item2);
+        client1.add(array[0]);
+        client1.add(array[1]);
         System.out.println(client1);
         System.out.println(client1.getTotalPrice());
+
+        client1.removeByID(1);
+        System.out.println(client1);
 
     }
 

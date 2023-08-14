@@ -24,17 +24,7 @@ public class SmartArray {
         arr = tempArray;
     }
 
-    private String countAverageValue(){
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
-        }
-        double average = (double) sum / size;
-        String result = String.format("%.3f",average);
-        return result;
-    }
-
-    private String arrayToString(){
+        public String toString(){
         String res="[";
         for (int i=0; i < size; i++){
             res+= arr[i] + " ";
@@ -43,8 +33,12 @@ public class SmartArray {
         res+="]";
         return res;
     }
-    public String toString(){
-        return "You have input the following numbers: " + arrayToString() + "\nTotal " + size + " numbers" + "\nAverage value: " + countAverageValue();
+    public int[] getArray(){
+        int[] tempArray = new int[size];
+        for (int i=0; i<size;i++){
+            tempArray[i]=arr[i];
+        }
+        return tempArray;
     }
 
 }

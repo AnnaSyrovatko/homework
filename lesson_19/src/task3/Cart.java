@@ -30,9 +30,29 @@ public class Cart {
     public String getTotalPrice(){
         double total = 0;
         for (int i=0;i<size;i++){
-            total += receipt[i].price;
+            total += receipt[i].getPrice();
         }
         return "Total: " + total + " USD";
+    }
+
+    public void remove(int index){
+        if(index >= 0 && index < size){
+            for (int i = index + 1; i < size; i++){
+                receipt[i-1] = receipt[i];
+            }
+            size--;
+        }
+    }
+    public void removeByID(int id){
+        int index = getIndexById(id);
+        remove(index);
+    }
+    public int getIndexById(int id){
+        int res = -1;
+        for (int i = 0; i < size; i++) {
+            if (receipt[i].getId() == id) return i;
+        }
+        return res;
     }
 
 }
