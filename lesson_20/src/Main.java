@@ -12,10 +12,10 @@ public class Main {
         // Make an array with Class Objects
         SmartArrayObj newArray = new SmartArrayObj();
         Person [] people = {
-            new Person("May", 1),
-            new Person("Tom", 2),
-            new Person("Gayle", 3),
-            new Person("Shadowheart", 4)
+            new Person("May"),
+            new Person("Tom"),
+            new Person("Gayle"),
+            new Person("Shadowheart")
         };
         for (int i = 0; i < people.length; i++) {
             newArray.add(people[i]);
