@@ -70,13 +70,15 @@ public class User {
             counter ++;
         }
         for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) == password.toUpperCase().charAt(i)){
+            char c = password.charAt(i);
+            if (Character.isAlphabetic(c) && password.charAt(i) == password.toUpperCase().charAt(i)){
                 counter ++;
                 break;
             }
         }
         for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) == password.toLowerCase().charAt(i)){
+            char c = password.charAt(i);
+            if (Character.isAlphabetic(c) && password.charAt(i) == password.toLowerCase().charAt(i)){
                 counter ++;
                 break;
             }

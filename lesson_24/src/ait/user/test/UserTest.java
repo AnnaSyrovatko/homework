@@ -10,7 +10,7 @@ class UserTest {
 
     private User user;
     private String email = "ait_student@gmail.com";
-    private String password = "1234";
+    private String password = "1Da6Fd%08";
 
 
     @BeforeEach
@@ -59,34 +59,40 @@ class UserTest {
         assertEquals(email, user.getEmail());
     }
     @Test
+    void testValidPassword(){
+        String validPassword = "1Da6Fd%08";
+        user.setPassword(validPassword);
+        assertEquals(validPassword, user.getPassword());
+    }
+    @Test
     void testPasswordNumOfSymbol(){
-        String invalidEmail = "1Da6Fd%";
-        user.setEmail(invalidEmail);
-        assertEquals(email, user.getEmail());
+        String invalidPassword = "1Da6Fd%";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
     }
     @Test
     void testPasswordSpecialSymbols(){
-        String invalidEmail = "1Da6Fd08";
-        user.setEmail(invalidEmail);
-        assertEquals(email, user.getEmail());
+        String invalidPassword = "1Da6Fd08";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
     }
     @Test
     void testPasswordUpperCase(){
-        String invalidEmail = "1da6fd%08";
-        user.setEmail(invalidEmail);
-        assertEquals(email, user.getEmail());
+        String invalidPassword = "1da6fd%08";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
     }
     @Test
     void testPasswordLowCase(){
-        String invalidEmail = "1DA6FD%08";
-        user.setEmail(invalidEmail);
-        assertEquals(email, user.getEmail());
+        String invalidPassword = "1DA6FD%08";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
     }
     @Test
     void testPasswordDigit(){
-        String invalidEmail = "wDa6Fd%Qp";
-        user.setEmail(invalidEmail);
-        assertEquals(email, user.getEmail());
+        String invalidPassword = "wDaFd%Qp";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
     }
 
 }
