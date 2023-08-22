@@ -18,6 +18,7 @@ public class User {
     }
 
     public void setEmail(String email) {
+        email = email.trim();
         if (emailIsValid(email)){
             this.email = email;
         }else{
@@ -26,18 +27,22 @@ public class User {
     }
 
     private boolean emailIsValid(String email) {
-        int at = email.indexOf('@');
-        if (at == -1 || email.lastIndexOf('@') != at) {
+        String[] arr = email.split("");
+        int at = findIndex(arr, "@", 0);
+        int dot = findIndex(arr, ".", 0);
+
+        if (at == -1 || findIndex(arr, "@", at+1) != -1) {
             return false;
         }
-        if(email.indexOf('.',at + 1 ) == -1){
+        if( findIndex(arr, ".", at+1) == -1){
             return false;
         }
-        if (email.lastIndexOf('.') >= email.length() - 2){
+        if (dot >= arr.length - 2){
             return false;
         }
-        for (int i = 0; i < email.length(); i++) {
-            char c = email.charAt(i);
+        for (int i = 0; i < arr.length; i++) {
+            String str = arr[i];
+            char c = str.charAt(0);
             if (!(Character.isDigit(c) || Character.isAlphabetic(c) || c == '@' || c == '.' || c == '_' || c == '-')){
                 return false;
             }
@@ -45,14 +50,14 @@ public class User {
         return true;
     }
 
-    /*
-    TODO Homework
-    1) Min 8 symbols
-    2) min one symbol in UpperCase
-    3) min one symbol in LowCase
-    4) Min one symbol is digit
-    5) Min one symbol is special symbol ( '!' '%' '@' '&' '*')
-     */
+    private int findIndex(String[] arr, String element, int fromIndex) {
+        for (int i = fromIndex; i < arr.length; i++) {
+            if (arr[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public void setPassword(String password) {
         if (passwordIsValid(password)){
@@ -65,25 +70,28 @@ public class User {
 
     private boolean passwordIsValid(String password) {
         boolean [] res = new boolean[5];
+        String[] arr = password.split("");
 
-        if (password.length() >= 8){
-            res[0] = true;
-        }
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
-            if (Character.isAlphabetic(c) && password.charAt(i) == password.toUpperCase().charAt(i)){
+       if (arr.length >= 8){
+           res[0] = true;
+       }
+
+        for (int i = 0; i < arr.length; i++) {
+            String str = arr[i];
+            char c = str.charAt(0);
+            if (Character.isAlphabetic(str.charAt(0)) && str.equals(str.toUpperCase())){
                 res[1] = true;
             }
-            if (Character.isAlphabetic(c) && password.charAt(i) == password.toLowerCase().charAt(i)){
+            if (Character.isAlphabetic(str.charAt(0)) && str.equals(str.toLowerCase())){
                 res[2] = true;
             }
-            if (Character.isDigit(c)){
+            if (Character.isDigit(str.charAt(0))){
                 res[3] = true;
             }
             if (c == '!' ||c == '%' ||c == '@' ||c == '*' ||c == '&'){
                 res[4] = true;
             }
-        }
+       }
         return (res[0] && res[1] && res[2] && res[3] && res[4]);
     }
 
