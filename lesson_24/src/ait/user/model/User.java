@@ -64,40 +64,27 @@ public class User {
     }
 
     private boolean passwordIsValid(String password) {
-        int counter = 0;
+        boolean [] res = new boolean[5];
 
         if (password.length() >= 8){
-            counter ++;
+            res[0] = true;
         }
         for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
             if (Character.isAlphabetic(c) && password.charAt(i) == password.toUpperCase().charAt(i)){
-                counter ++;
-                break;
+                res[1] = true;
             }
-        }
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
             if (Character.isAlphabetic(c) && password.charAt(i) == password.toLowerCase().charAt(i)){
-                counter ++;
-                break;
+                res[2] = true;
             }
-        }
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
             if (Character.isDigit(c)){
-                counter ++;
-                break;
+                res[3] = true;
             }
-        }
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
             if (c == '!' ||c == '%' ||c == '@' ||c == '*' ||c == '&'){
-                counter ++;
-                break;
+                res[4] = true;
             }
         }
-        return (counter == 5);
+        return (res[0] && res[1] && res[2] && res[3] && res[4]);
     }
 
 
